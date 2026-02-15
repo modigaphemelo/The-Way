@@ -89,6 +89,7 @@ h4 { font-size: 1.3rem; }
 p {
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    color: var(--text-secondary);
 }
 
 strong {
@@ -176,6 +177,51 @@ li {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+
+.article-section {
+    margin-bottom: 3rem;
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.article-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-section h4 {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-primary);
+}
+
+.article-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.article-section ul, 
+.article-section ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.article-section li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.article-section li strong {
+    color: var(--path-primary);
 }
 
 .simple-divider {
@@ -584,7 +630,8 @@ li {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 3rem 2.5rem;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
+    max-width: var(--content-max-width);
     text-align: center;
     transition: var(--transition);
 }
@@ -592,6 +639,7 @@ li {
 .card:hover {
     border-color: var(--path-primary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .card p {
@@ -614,9 +662,17 @@ li {
 .simple-box:hover {
     border-color: var(--path-primary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
-.simple-box ul, .simple-box ol {
+.simple-box p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.simple-box ul, 
+.simple-box ol {
     text-align: left;
     margin: 1rem 0 0 1.5rem;
 }
@@ -626,6 +682,10 @@ li {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 0.75rem;
+}
+
+.simple-box li strong {
+    color: var(--path-primary);
 }
 
 .note {
@@ -642,6 +702,7 @@ li {
 .note:hover {
     border-color: rgba(100, 181, 246, 0.3);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .note h4 {
@@ -652,6 +713,11 @@ li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.note p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
 }
 
 .note.warning {
@@ -668,8 +734,8 @@ li {
    DANGER ITEMS
    ============================================== */
 .danger-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 107, 107, 0.2);
 }
 
@@ -680,13 +746,17 @@ li {
 }
 
 .danger-item strong {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--path-primary);
 }
 
 .danger-item p {
     margin-bottom: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* ==============================================
@@ -761,8 +831,10 @@ li {
     border-radius: 1px;
 }
 
-.process-step p {
+.process-step .step-content p {
     margin-bottom: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 /* ==============================================
@@ -856,6 +928,10 @@ li {
     line-height: 1.7;
 }
 
+.path-step p strong {
+    color: var(--path-primary);
+}
+
 .path-connector {
     display: flex;
     align-items: center;
@@ -919,6 +995,7 @@ li {
 .characteristic:hover {
     border-color: var(--path-primary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .characteristic h4 {
@@ -934,6 +1011,11 @@ li {
     font-size: 0.95rem;
     color: var(--text-secondary);
     text-align: left;
+    line-height: 1.6;
+}
+
+.characteristic p strong {
+    color: var(--path-primary);
 }
 
 /* ==============================================
@@ -959,6 +1041,7 @@ li {
 .comparison-item:hover {
     border-color: var(--path-primary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .comparison-item h4 {
@@ -1192,6 +1275,13 @@ li {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     text-align: center;
+    transition: var(--transition);
+}
+
+.counterfeit-card:hover {
+    border-color: var(--counterfeit);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .counterfeit-card h4 {
@@ -1224,6 +1314,10 @@ li {
 .counterfeit-practice p {
     margin-bottom: 1rem;
     color: var(--text-secondary);
+}
+
+.counterfeit-practice strong {
+    color: var(--counterfeit);
 }
 
 .counterfeit-link {
@@ -1272,6 +1366,13 @@ li {
     border-radius: var(--radius-md);
     padding: 2rem;
     text-align: center;
+    transition: var(--transition);
+}
+
+.sequence-box:hover {
+    border-color: var(--path-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .sequence-title {
@@ -1343,6 +1444,13 @@ li {
     text-align: center;
     margin: 2rem auto;
     max-width: var(--content-max-width);
+    transition: var(--transition);
+}
+
+.invitation-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--path-primary);
 }
 
 .invitation-card h2 {
@@ -1354,6 +1462,16 @@ li {
     color: var(--text-secondary);
     max-width: 400px;
     margin: 0 auto 1rem;
+}
+
+.invitation-card p:last-child {
+    margin-bottom: 0;
+}
+
+.invitation-card em {
+    color: var(--path-primary);
+    font-style: normal;
+    font-weight: 500;
 }
 
 .invitation-small {
@@ -1441,7 +1559,11 @@ li {
     .sequence-box,
     .process-step,
     .path-step,
-    .characteristic {
+    .characteristic,
+    .card,
+    .simple-box,
+    .note,
+    .invitation-card {
         opacity: 0;
         transform: translateY(20px);
         animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -1454,7 +1576,8 @@ li {
     .process-step:nth-child(3) { animation-delay: 0.4s; }
 
     .path-step:nth-child(2) { animation-delay: 0.2s; }
-    .path-step:nth-child(4) { animation-delay: 0.4s; }
+    .path-step:nth-child(3) { animation-delay: 0.4s; }
+    .path-step:nth-child(4) { animation-delay: 0.6s; }
 
     @keyframes fadeInUp {
         to {
@@ -1587,6 +1710,10 @@ li {
     .distinction-table {
         font-size: 0.85rem;
     }
+
+    .characteristics {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1628,4 +1755,8 @@ li {
     .path-step .step-content {
         text-align: center;
     }
-}
+
+    .danger-item strong {
+        font-size: 1rem;
+    }
+       }
