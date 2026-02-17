@@ -6,30 +6,30 @@
     // Mobile Navigation Toggle
     // ==============================================
     const navToggle = document.getElementById('navToggle');
-    const sidebar = document.getElementById('sidebar');
+    const sidenav = document.getElementById('sidenav');
 
-    if (navToggle && sidebar) {
-        // Toggle sidebar open/close
+    if (navToggle && sidenav) {
+        // Toggle sidenav open/close
         navToggle.addEventListener('click', function(e) {
             e.stopPropagation();
-            sidebar.classList.toggle('open');
+            sidenav.classList.toggle('open');
             
             // Update aria-expanded attribute for accessibility
-            const isOpen = sidebar.classList.contains('open');
+            const isOpen = sidenav.classList.contains('open');
             navToggle.setAttribute('aria-expanded', isOpen);
             
-            // Prevent body scroll when sidebar is open on mobile
+            // Prevent body scroll when sidenav is open on mobile
             if (window.innerWidth <= 1024) {
                 document.body.style.overflow = isOpen ? 'hidden' : '';
             }
         });
 
-        // Close sidebar when clicking outside
+        // Close sidenav when clicking outside
         document.addEventListener('click', function(e) {
-            if (sidebar.classList.contains('open') && 
-                !sidebar.contains(e.target) && 
+            if (sidenav.classList.contains('open') && 
+                !sidenav.contains(e.target) && 
                 !navToggle.contains(e.target)) {
-                sidebar.classList.remove('open');
+                sidenav.classList.remove('open');
                 navToggle.setAttribute('aria-expanded', 'false');
                 
                 // Restore body scroll
@@ -39,10 +39,10 @@
             }
         });
 
-        // Close sidebar on escape key
+        // Close sidenav on escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
+            if (e.key === 'Escape' && sidenav.classList.contains('open')) {
+                sidenav.classList.remove('open');
                 navToggle.setAttribute('aria-expanded', 'false');
                 
                 // Restore body scroll
@@ -54,8 +54,8 @@
 
         // Handle window resize
         window.addEventListener('resize', function() {
-            if (window.innerWidth > 1024 && sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
+            if (window.innerWidth > 1024 && sidenav.classList.contains('open')) {
+                sidenav.classList.remove('open');
                 navToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
@@ -133,11 +133,10 @@
             const linkPath = link.getAttribute('href');
             
             // Remove relative path indicators for comparison
-            const cleanCurrent = currentPath.replace(/^.*[\\\/]/, '');
-            const cleanLink = linkPath.replace(/^.*[\\\/]/, '');
+            const cleanCurrent = currentPath.split('/').pop() || 'index.html';
+            const cleanLink = linkPath.split('/').pop();
             
-            if (cleanCurrent === cleanLink || 
-                (cleanLink === 'index.html' && cleanCurrent === '')) {
+            if (cleanCurrent === cleanLink) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
@@ -273,6 +272,12 @@
     });
 
     function showKeyboardHelp() {
+        // Remove existing help if any
+        const existingHelp = document.querySelector('.keyboard-help');
+        if (existingHelp) {
+            existingHelp.remove();
+        }
+        
         const helpDiv = document.createElement('div');
         helpDiv.className = 'keyboard-help';
         helpDiv.innerHTML = `
