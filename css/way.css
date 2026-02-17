@@ -124,6 +124,92 @@ li {
 }
 
 /* ==============================================
+   DISTINCTION TABLE
+   ============================================== */
+.distinction-table {
+    width: 100%;
+    overflow-x: auto;
+    margin: 2rem auto;
+    max-width: var(--content-max-width);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+}
+
+.distinction-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 600px;
+}
+
+.distinction-table thead {
+    background: rgba(100, 181, 246, 0.1);
+}
+
+.distinction-table th {
+    text-align: left;
+    padding: 1.25rem 1rem;
+    border-bottom: 2px solid var(--border);
+    color: var(--path-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    border-right: 1px solid var(--border-light);
+}
+
+.distinction-table th:last-child {
+    border-right: none;
+}
+
+.distinction-table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    vertical-align: top;
+    border-right: 1px solid var(--border-light);
+}
+
+.distinction-table td:last-child {
+    border-right: none;
+}
+
+.distinction-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.distinction-table tbody tr:nth-child(even) {
+    background: rgba(100, 181, 246, 0.02);
+}
+
+.distinction-table tbody tr:hover {
+    background: rgba(100, 181, 246, 0.05);
+}
+
+.distinction-table td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .distinction-table {
+        font-size: 0.85rem;
+        border: none;
+    }
+    
+    .distinction-table table {
+        min-width: 100%;
+    }
+    
+    .distinction-table th,
+    .distinction-table td {
+        padding: 0.75rem 0.5rem;
+    }
+   }
+
+/* ==============================================
    SELECTION & SCROLLBAR
    ============================================== */
 ::selection {
