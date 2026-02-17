@@ -26,7 +26,6 @@
     --path-secondary: #4a90e2;
     --path-gradient: linear-gradient(135deg, #64b5f6, #4a90e2);
     --path-glow: 0 0 20px rgba(100, 181, 246, 0.3);
-    --path-marker: #7e57c2;
     
     /* Danger/Warning Colors */
     --danger: #ff3b30;
@@ -54,7 +53,7 @@
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Layout */
-    --sidebar-width: 220px;
+    --sidebar-width: 240px;
     --container-max-width: 1200px;
     --content-max-width: 800px;
 }
@@ -139,6 +138,7 @@ li {
 
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -152,6 +152,10 @@ li {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-tertiary);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-primary);
 }
 
 /* ==============================================
@@ -232,9 +236,9 @@ li {
 }
 
 /* ==============================================
-   SIDEBAR
+   SIDENAV (FIXED - NO BULLETS)
    ============================================== */
-.sidebar {
+.sidenav {
     width: var(--sidebar-width);
     height: 100vh;
     position: fixed;
@@ -242,48 +246,51 @@ li {
     top: 0;
     background: rgba(15, 15, 15, 0.97);
     border-right: 1px solid rgba(100, 181, 246, 0.2);
-    padding: 2rem 1rem;
+    padding: 2rem 0;
     z-index: 100;
     overflow-y: auto;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.sidebar-header {
+.sidenav-header {
     margin-bottom: 2rem;
-    padding-bottom: 1.25rem;
+    padding: 0 1.5rem 1.25rem;
     border-bottom: 1px solid rgba(100, 181, 246, 0.2);
-    text-align: center;
+    text-align: left;
 }
 
-.sidebar-header h1 {
-    font-size: 1.5rem;
+.sidenav-header h1 {
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--path-primary);
     margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
 }
 
-.sidebar-subtitle {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
+.sidenav-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
     line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.sidebar-nav ul {
+.nav-links {
     list-style: none;
-    margin-bottom: 2rem;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.sidebar-nav li {
-    margin: 0.25rem 0;
+.nav-links li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-.sidebar-nav a {
+.nav-links a {
     display: block;
-    padding: 0.5rem 1rem;
-    margin: 0 0.25rem;
-    border-radius: 6px;
+    padding: 0.4rem 1.5rem;
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.85rem;
@@ -292,45 +299,73 @@ li {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.4;
 }
 
-.sidebar-nav a:hover {
+.nav-links a:hover {
     color: var(--path-primary);
     background: rgba(100, 181, 246, 0.08);
     border-left: 2px solid var(--path-primary);
 }
 
-.sidebar-nav a.active {
+.nav-links a.active {
     color: var(--path-primary);
     background: rgba(100, 181, 246, 0.12);
     border-left: 2px solid var(--path-primary);
     font-weight: 500;
 }
 
-.nav-group {
-    margin-bottom: 1.5rem;
-}
-
-.nav-group-title {
-    color: rgba(100, 181, 246, 0.7);
+.nav-category {
+    color: var(--text-tertiary);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 1.5rem 0 0.5rem 1rem;
+    margin: 1.5rem 0 0.25rem 1.5rem;
     font-weight: 600;
-    padding-left: 0.5rem;
+    list-style-type: none;
 }
 
-.sidebar-footer {
+/* Indentation for subpage links under main modules */
+.nav-links a[href*="01-see-what-you-were-given/"],
+.nav-links a[href*="02-know-your-ground/"],
+.nav-links a[href*="03-walk-deliberately/"],
+.nav-links a[href*="01-walk-at-your-pace/"],
+.nav-links a[href*="02-walk-through-difficulty/"],
+.nav-links a[href*="03-paths-that-strengthen/"],
+.nav-links a[href*="04-walk-with-what-you-have/"],
+.nav-links a[href*="01-walk-each-day/"],
+.nav-links a[href*="02-walk-with-others/"],
+.nav-links a[href*="03-walk-toward-meaning/"] {
+    padding-left: 2.5rem;
+    font-size: 0.8rem;
+}
+
+/* Threshold pages styling */
+.nav-links a[href*="threshold/"] {
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+.nav-links a[href*="threshold/"]:hover {
+    color: var(--counterfeit);
+    border-left-color: var(--counterfeit);
+}
+
+.nav-links a[href*="threshold/"].active {
+    color: var(--counterfeit);
+    background: rgba(255, 107, 107, 0.08);
+    border-left-color: var(--counterfeit);
+}
+
+.sidenav-footer {
     display: flex;
-    gap: 0.75rem;
-    padding-top: 1.5rem;
+    gap: 1rem;
+    padding: 2rem 1.5rem 1rem;
     border-top: 1px solid rgba(100, 181, 246, 0.2);
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.sidebar-footer a {
+.sidenav-footer a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,24 +376,24 @@ li {
     color: var(--path-primary);
     text-decoration: none;
     transition: var(--transition);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
-.sidebar-footer a:hover {
+.sidenav-footer a:hover {
     background: rgba(100, 181, 246, 0.2);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
 }
 
 .copyright {
-    width: 100%;
     font-size: 0.7rem;
     color: var(--text-tertiary);
     margin: 0.5rem 0 0;
-    text-align: center;
+    text-align: left;
+    width: 100%;
 }
 
-.nav-toggle {
+.sidenav-toggle {
     display: none;
     position: fixed;
     top: 1.25rem;
@@ -369,27 +404,29 @@ li {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-sm);
-    font-size: 0.95rem;
+    font-size: 1rem;
     z-index: 1000;
     cursor: pointer;
     transition: var(--transition);
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-toggle:hover {
+.sidenav-toggle:hover {
     background: rgba(100, 181, 246, 0.2);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(100, 181, 246, 0.2);
 }
 
-.sidebar::-webkit-scrollbar {
+.sidenav::-webkit-scrollbar {
     width: 4px;
 }
 
-.sidebar::-webkit-scrollbar-track {
+.sidenav::-webkit-scrollbar-track {
     background: rgba(100, 181, 246, 0.05);
 }
 
-.sidebar::-webkit-scrollbar-thumb {
+.sidenav::-webkit-scrollbar-thumb {
     background: var(--path-primary);
     border-radius: 2px;
 }
@@ -423,6 +460,7 @@ li {
     color: var(--path-primary);
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
+    line-height: 1.1;
 }
 
 .hero-line {
@@ -430,6 +468,9 @@ li {
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-divider {
@@ -495,9 +536,9 @@ li {
     gap: 0.5rem;
     color: var(--path-primary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     background: rgba(100, 181, 246, 0.1);
     border: 1px solid rgba(100, 181, 246, 0.2);
     border-radius: var(--radius-sm);
@@ -507,6 +548,7 @@ li {
 .simple-link:hover {
     background: rgba(100, 181, 246, 0.2);
     border-color: var(--path-primary);
+    transform: translateX(4px);
 }
 
 .nav-link-forward,
@@ -537,31 +579,8 @@ li {
     transform: translateX(-4px);
 }
 
-.entry-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--path-primary);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    background: rgba(100, 181, 246, 0.1);
-    border: 1px solid rgba(100, 181, 246, 0.2);
-    border-radius: var(--radius-sm);
-    transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.entry-link:hover {
-    background: rgba(100, 181, 246, 0.2);
-    border-color: var(--path-primary);
-    transform: translateX(4px);
-}
-
 /* ==============================================
-   THRESHOLD
+   THRESHOLD / STAGE DIVIDER
    ============================================== */
 .threshold {
     display: flex;
@@ -605,21 +624,8 @@ li {
 }
 
 .threshold-divider {
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
     font-weight: 300;
-}
-
-.threshold-instruction {
-    text-align: center;
-    max-width: var(--content-max-width);
-    margin: 2rem auto;
-}
-
-.threshold-instruction p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
 }
 
 /* ==============================================
@@ -643,7 +649,7 @@ li {
 }
 
 .card p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: var(--text-primary);
     margin: 0;
@@ -731,35 +737,6 @@ li {
 }
 
 /* ==============================================
-   DANGER ITEMS
-   ============================================== */
-.danger-item {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 107, 107, 0.2);
-}
-
-.danger-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.danger-item strong {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
-    color: var(--path-primary);
-}
-
-.danger-item p {
-    margin-bottom: 0;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* ==============================================
    PROCESS STEPS
    ============================================== */
 .process {
@@ -838,7 +815,7 @@ li {
 }
 
 /* ==============================================
-   INSTALLATION PATH
+   INSTALLATION PATH (FOR PRACTICE SEQUENCES)
    ============================================== */
 .installation-path {
     margin: 3rem auto;
@@ -923,9 +900,13 @@ li {
 
 .path-step p {
     color: var(--text-secondary);
-    margin: 0;
+    margin: 0 0 1rem 0;
     font-size: 1rem;
     line-height: 1.7;
+}
+
+.path-step p:last-child {
+    margin-bottom: 0;
 }
 
 .path-step p strong {
@@ -972,6 +953,30 @@ li {
     box-shadow: 0 6px 20px rgba(100, 181, 246, 0.3);
 }
 
+/* Practice tags inside path steps */
+.pillar-practices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.pillar-practices span {
+    background: rgba(100, 181, 246, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 16px;
+    border: 1px solid rgba(100, 181, 246, 0.15);
+}
+
+.sep {
+    background: transparent !important;
+    padding: 0.2rem 0 !important;
+    color: var(--text-tertiary);
+    border: none !important;
+}
+
 /* ==============================================
    CHARACTERISTICS GRID
    ============================================== */
@@ -1003,7 +1008,7 @@ li {
     margin-bottom: 0.75rem;
     font-size: 1.1rem;
     font-weight: 600;
-    text-align: center;
+    text-align: left;
 }
 
 .characteristic p {
@@ -1019,7 +1024,7 @@ li {
 }
 
 /* ==============================================
-   COMPARISON
+   COMPARISON GRID
    ============================================== */
 .comparison {
     display: grid;
@@ -1075,76 +1080,7 @@ li {
 }
 
 /* ==============================================
-   DISTINCTION TABLE
-   ============================================== */
-.distinction-table {
-    width: 100%;
-    overflow-x: auto;
-    margin: 2rem auto;
-    max-width: var(--content-max-width);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-}
-
-.distinction-table table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    min-width: 600px;
-}
-
-.distinction-table thead {
-    background: rgba(100, 181, 246, 0.1);
-}
-
-.distinction-table th {
-    text-align: center;
-    padding: 1.25rem 1rem;
-    border-bottom: 2px solid var(--border);
-    color: var(--path-primary);
-    font-weight: 600;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    border-right: 1px solid var(--border-light);
-}
-
-.distinction-table th:last-child {
-    border-right: none;
-}
-
-.distinction-table td {
-    padding: 1.25rem 1rem;
-    border-bottom: 1px solid var(--border-light);
-    color: var(--text-secondary);
-    line-height: 1.6;
-    vertical-align: top;
-    border-right: 1px solid var(--border-light);
-}
-
-.distinction-table td:last-child {
-    border-right: none;
-}
-
-.distinction-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.distinction-table tbody tr:nth-child(even) {
-    background: rgba(100, 181, 246, 0.02);
-}
-
-.distinction-table tbody tr:hover {
-    background: rgba(100, 181, 246, 0.05);
-}
-
-.distinction-table td:first-child {
-    font-weight: 500;
-    color: var(--text-primary);
-    white-space: nowrap;
-}
-
-/* ==============================================
-   PILLARS
+   PILLARS (THREE STAGES ON HOME)
    ============================================== */
 .pillars {
     margin: 4rem auto;
@@ -1152,7 +1088,7 @@ li {
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     text-align: center;
     margin-bottom: 3rem;
@@ -1188,7 +1124,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
 }
@@ -1198,7 +1134,7 @@ li {
 }
 
 .pillar-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
@@ -1217,28 +1153,6 @@ li {
 .pillar-subtitle strong {
     color: var(--path-primary);
     font-weight: 600;
-}
-
-.pillar-practices {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.5rem 0;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-.pillar-practices span {
-    background: rgba(100, 181, 246, 0.1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    border: 1px solid rgba(100, 181, 246, 0.2);
-}
-
-.sep {
-    background: transparent !important;
-    padding: 0.25rem 0 !important;
-    color: var(--text-tertiary);
 }
 
 .pillar-threshold {
@@ -1260,13 +1174,29 @@ li {
 }
 
 /* ==============================================
-   COUNTERFEIT GRID
+   COUNTERFEIT SECTION
    ============================================== */
+.counterfeit {
+    margin: 4rem auto;
+    max-width: var(--content-max-width);
+    padding: 2rem;
+    background: rgba(255, 107, 107, 0.03);
+    border: 1px solid rgba(255, 107, 107, 0.15);
+    border-radius: var(--radius-md);
+}
+
+.counterfeit-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
 .counterfeit-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
 }
 
 .counterfeit-card {
@@ -1326,7 +1256,7 @@ li {
 }
 
 /* ==============================================
-   GROUND SECTION
+   GROUND SECTION (BEGIN PAGE)
    ============================================== */
 .ground {
     text-align: center;
@@ -1353,7 +1283,7 @@ li {
 }
 
 /* ==============================================
-   SEQUENCE
+   SEQUENCE (WALK IN ORDER SECTION)
    ============================================== */
 .sequence {
     margin: 4rem auto;
@@ -1437,7 +1367,7 @@ li {
    INVITATION CARD
    ============================================== */
 .invitation-card {
-    background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(126, 87, 194, 0.1));
+    background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(74, 144, 226, 0.1));
     border: 1px solid var(--path-primary);
     border-radius: var(--radius-lg);
     padding: 3rem 2rem;
@@ -1449,19 +1379,21 @@ li {
 
 .invitation-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     border-color: var(--path-primary);
 }
 
 .invitation-card h2 {
     color: var(--path-primary);
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .invitation-card p {
     color: var(--text-secondary);
     max-width: 400px;
     margin: 0 auto 1rem;
+    font-size: 1.1rem;
 }
 
 .invitation-card p:last-child {
@@ -1503,7 +1435,7 @@ li {
 }
 
 /* ==============================================
-   PROGRESS
+   PROGRESS BAR
    ============================================== */
 .progress {
     position: fixed;
@@ -1512,7 +1444,10 @@ li {
     width: 100%;
     height: 3px;
     background: rgba(100, 181, 246, 0.1);
-    z-index: 9998;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .progress-fill {
@@ -1551,34 +1486,127 @@ li {
 }
 
 /* ==============================================
+   KEYBOARD HELP MODAL
+   ============================================== */
+.keyboard-help {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.keyboard-help.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.keyboard-help-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--path-primary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+}
+
+.keyboard-help-content h3 {
+    color: var(--path-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.keyboard-help-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.keyboard-help-content li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.close-help {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--path-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-help:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--path-glow);
+}
+
+/* ==============================================
+   CODE BLOCK COPY BUTTON
+   ============================================== */
+.code-block {
+    position: relative;
+}
+
+.code-copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code-copy-button:hover {
+    background: var(--bg-secondary);
+    color: var(--path-primary);
+    border-color: var(--path-primary);
+}
+
+/* ==============================================
    ANIMATIONS
    ============================================== */
 @media (prefers-reduced-motion: no-preference) {
-    .pillar,
-    .counterfeit-card,
-    .sequence-box,
-    .process-step,
-    .path-step,
-    .characteristic,
-    .card,
-    .simple-box,
-    .note,
-    .invitation-card {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    .pillar:nth-child(2) { animation-delay: 0.2s; }
-    .pillar:nth-child(3) { animation-delay: 0.4s; }
-
-    .process-step:nth-child(2) { animation-delay: 0.2s; }
-    .process-step:nth-child(3) { animation-delay: 0.4s; }
-
-    .path-step:nth-child(2) { animation-delay: 0.2s; }
-    .path-step:nth-child(3) { animation-delay: 0.4s; }
-    .path-step:nth-child(4) { animation-delay: 0.6s; }
-
     @keyframes fadeInUp {
         to {
             opacity: 1;
@@ -1591,32 +1619,31 @@ li {
    RESPONSIVE DESIGN
    ============================================== */
 @media (max-width: 1024px) {
-    .sidebar {
+    .sidenav {
         transform: translateX(-100%);
         width: 280px;
         box-shadow: var(--shadow-md);
+        transition: transform 0.3s ease;
     }
 
-    .sidebar.open {
+    .sidenav.open {
         transform: translateX(0);
     }
 
     .main {
         margin-left: 0;
         width: 100%;
-        padding: 2.5rem;
+        padding: 4rem 2rem 2rem;
     }
 
-    .nav-toggle {
+    .sidenav-toggle {
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 
 @media (max-width: 768px) {
     .main {
-        padding: 4rem 1.5rem 2.5rem;
+        padding: 4rem 1.5rem 2rem;
     }
 
     .hero-title {
@@ -1707,11 +1734,11 @@ li {
         font-size: 1.1rem;
     }
 
-    .distinction-table {
-        font-size: 0.85rem;
-    }
-
     .characteristics {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison {
         grid-template-columns: 1fr;
     }
 }
@@ -1733,8 +1760,16 @@ li {
         padding: 2rem 1rem;
     }
 
+    .card p {
+        font-size: 1rem;
+    }
+
     .invitation-card {
         padding: 2rem 1rem;
+    }
+    
+    .invitation-card h2 {
+        font-size: 1.5rem;
     }
 
     .button {
@@ -1750,13 +1785,24 @@ li {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 1rem;
     }
 
     .path-step .step-content {
         text-align: center;
+        width: 100%;
     }
 
-    .danger-item strong {
-        font-size: 1rem;
+    .path-step h4 {
+        text-align: center;
     }
-       }
+
+    .pillar-practices {
+        justify-content: center;
+    }
+
+    .path-step .simple-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
