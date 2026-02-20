@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2: Design for Pressure · The Way</title>
+    <meta name="description" content="Build systems that gain from volatility. Nassim Taleb calls this antifragility. Design paths that strengthen under stress.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/way.css">
+    <link rel="icon" href="../../favicon.png" type="image/png">
+</head>
+<body>
+
+    <div class="progress">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <button class="sidenav-toggle" id="navToggle" aria-label="Open navigation">
+        <i class="fas fa-compass"></i>
+    </button>
+
+    <div class="container">
+
+        <aside class="sidenav" id="sidenav">
+            <div class="sidenav-header">
+                <h1>The Way</h1>
+                <p class="sidenav-subtitle">Finding your path.<br>Walking it well.</p>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../begin.html">Why This Exists</a></li>
+                
+                <li class="nav-category">Ⅰ · See the path</li>
+                <li><a href="../../see/01-see-what-you-were-given.html">01. See What You Were Given</a></li>
+                <li><a href="../../see/02-know-your-ground.html">02. Know Your Ground</a></li>
+                <li><a href="../../see/03-walk-deliberately.html">03. Walk Deliberately</a></li>
+                
+                <li class="nav-category">· Threshold ·</li>
+                <li><a href="../../threshold/sovereignty.html">Sovereignty Check</a></li>
+                
+                <li class="nav-category">Ⅱ · Make the way</li>
+                <li><a href="../01-walk-at-your-pace.html">04. Walk at Your Pace</a></li>
+                <li><a href="../02-walk-through-difficulty.html">05. Walk Through Difficulty</a></li>
+                <li><a href="../03-paths-that-strengthen.html">06. Paths That Strengthen</a></li>
+                <li><a href="01-brittle-vs-resilient.html">1: Brittle vs Resilient</a></li>
+                <li><a href="02-design-for-pressure.html" class="active">2: Design for Pressure</a></li>
+                <li><a href="03-multiple-routes.html">3: Multiple Routes</a></li>
+                <li><a href="04-balance-and-redundancy.html">4: Balance and Redundancy</a></li>
+                <li><a href="05-deep-foundations.html">5: Deep Foundations</a></li>
+                <li><a href="06-the-strengthening-path.html">6: The Strengthening Path</a></li>
+                
+                <li><a href="../04-walk-with-what-you-have.html">07. Walk With What You Have</a></li>
+                
+                <li class="nav-category">· Threshold ·</li>
+                <li><a href="../../threshold/contribution.html">Contribution Check</a></li>
+                
+                <li class="nav-category">Ⅲ · Walk well</li>
+                <li><a href="../../walk/01-walk-each-day.html">08. Walk Each Day</a></li>
+                <li><a href="../../walk/02-walk-with-others.html">09. Walk With Others</a></li>
+                <li><a href="../../walk/03-walk-toward-meaning.html">10. Walk Toward Meaning</a></li>
+                
+                <li class="nav-category">· Thresholds ·</li>
+                <li><a href="../../threshold/restoration.html">Rest, Not Escape</a></li>
+                <li><a href="../../threshold/legacy.html">Legacy Check</a></li>
+            </ul>
+
+            <div class="sidenav-footer">
+            </div>
+        </aside>
+
+        <main class="main">
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Design for Pressure</h1>
+                    <p class="hero-line">Practice 2 of 6: Systems that gain from volatility</p>
+                </div>
+            </section>
+
+            <article class="content-section">
+
+                <!-- Introduction -->
+                <section class="article-section">
+                    <h3><i class="fas fa-wind"></i> Beyond Robustness</h3>
+                    <p>Nassim Taleb identified a category of systems that don't just survive stress - they <strong style="color: var(--path-primary);">gain from it</strong>. He called this antifragility. The immune system is antifragile: exposure to pathogens makes it stronger. Muscles are antifragile: tearing them slightly through exercise makes them rebuild stronger.</p>
+                    
+                    <div class="card" style="background: rgba(100, 181, 246, 0.05); border-color: var(--path-primary);">
+                        <p>Most personal systems are designed to avoid stress. They seek stability, predictability, comfort. But a life without stress is a life without growth. The goal is not to eliminate volatility - it's to <strong style="color: var(--path-primary);">build systems that use volatility as fuel</strong>.</p>
+                    </div>
+
+                    <p>This is the upgrade from robust (withstands stress) to antifragile (gains from stress).</p>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- Three Responses -->
+                <section class="article-section">
+                    <h3><i class="fas fa-layer-group"></i> Three Responses to Stress</h3>
+
+                    <div class="characteristics">
+                        <div class="characteristic">
+                            <div class="characteristic-icon"><i class="fas fa-glass"></i></div>
+                            <h4>Brittle</h4>
+                            <p><strong style="color: var(--path-primary);">Response to stress:</strong> Cracks, breaks<br>
+                            <strong style="color: var(--path-primary);">Goal:</strong> Avoid all volatility<br>
+                            <strong style="color: var(--path-primary);">Feels like:</strong> Anxious, defensive<br>
+                            <strong style="color: var(--path-primary);">Example:</strong> Single skill, no backup plan<br>
+                            <strong style="color: var(--path-primary);">Result:</strong> Catastrophic failure</p>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <div class="characteristic-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Robust</h4>
+                            <p><strong style="color: var(--path-primary);">Response to stress:</strong> Withstands<br>
+                            <strong style="color: var(--path-primary);">Goal:</strong> Survive unchanged<br>
+                            <strong style="color: var(--path-primary);">Feels like:</strong> Steady, prepared<br>
+                            <strong style="color: var(--path-primary);">Example:</strong> Emergency fund, backups<br>
+                            <strong style="color: var(--path-primary);">Result:</strong> Stability, no growth</p>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <div class="characteristic-icon"><i class="fas fa-seedling"></i></div>
+                            <h4 style="color: var(--path-primary);">Antifragile</h4>
+                            <p><strong style="color: var(--path-primary);">Response to stress:</strong> Strengthens<br>
+                            <strong style="color: var(--path-primary);">Goal:</strong> Evolve through challenge<br>
+                            <strong style="color: var(--path-primary);">Feels like:</strong> Curious, engaged<br>
+                            <strong style="color: var(--path-primary);">Example:</strong> Immune system, muscles<br>
+                            <strong style="color: var(--path-primary);">Result:</strong> Growth through adversity</p>
+                        </div>
+                    </div>
+
+                    <div class="note" style="border-color: var(--path-primary); margin-top: 2rem;">
+                        <h4 style="color: var(--path-primary);"><i class="fas fa-compass"></i> The Distinction</h4>
+                        <p><strong style="color: var(--path-primary);">Robust asks:</strong> "How can I protect myself from this?"<br>
+                        <strong style="color: var(--path-primary);">Antifragile asks:</strong> "How can this challenge make me stronger?"</p>
+                        <p>One builds shields. The other builds capacity.</p>
+                    </div>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- The Barbell Strategy -->
+                <section class="article-section">
+                    <h3><i class="fas fa-dumbbell"></i> The Barbell Strategy</h3>
+
+                    <div class="pillar" style="border-color: var(--path-primary);">
+                        <div class="pillar-marker" style="background: var(--path-primary);">🏋️</div>
+                        <div class="pillar-content">
+                            <h4 style="color: var(--path-primary);">The Most Practical Antifragile Pattern</h4>
+                            
+                            <p style="margin-top: 1rem;">Place 85-90% of your resources in <strong style="color: var(--path-primary);">extremely safe</strong> assets (left side). Place 10-15% in <strong style="color: var(--path-primary);">extremely risky with unlimited upside</strong> (right side). <strong style="color: var(--path-primary);">Avoid the middle</strong> - moderately risky with limited upside.</p>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <p><strong style="color: var(--path-primary);">Career Barbell:</strong> Safe side: stable job that pays bills. Risky side: ambitious side project. Avoid: "safe" corporate ladder with 2% annual raises.</p>
+                                
+                                <p><strong style="color: var(--path-primary);">Learning Barbell:</strong> Safe side: deep mastery of one valuable skill. Risky side: exploration of emerging fields. Avoid: superficial knowledge of everything popular.</p>
+                                
+                                <p><strong style="color: var(--path-primary);">Relationship Barbell:</strong> Safe side: deep bonds with trusted people. Risky side: meeting diverse new people. Avoid: large networks of casual acquaintances.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- The Lindy Effect -->
+                <section class="article-section">
+                    <h3><i class="fas fa-hourglass"></i> The Lindy Effect</h3>
+
+                    <div class="characteristics">
+                        <div class="characteristic">
+                            <h4>What It Is</h4>
+                            <p>The future life expectancy of something is proportional to its current age. A 100-year-old book will likely be read in 100 years. A 1-year-old app will likely be gone in 1 year.</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Examples:</strong> Ancient philosophy (2,500+ years) vs trending blog (2 years). Mathematics (5,000+ years) vs latest framework (5 years).
+                            </div>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <h4>How to Use It</h4>
+                            <p>When deciding what to learn, build, or invest in, ask: "Has this survived 20+ years of change?"</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Lindy Filter:</strong> Age < 10 years → "Experimental, likely ephemeral." Age 10-50 years → "Possibly durable." Age 50+ years → "Lindy proven."
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="note" style="border-color: var(--path-primary); margin-top: 1.5rem;">
+                        <p>Time is the ultimate stress test. What has survived centuries has proven its value. What is new hasn't been tested. Allocate your energy accordingly.</p>
+                    </div>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- The Four Protocols -->
+                <section class="article-section">
+                    <h3><i class="fas fa-tasks"></i> Antifragile Protocols</h3>
+
+                    <div class="characteristics">
+                        <div class="characteristic">
+                            <h4>1. Optionality</h4>
+                            <p>Preserve options, especially when uncertain. Options have unlimited upside with limited downside.</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Practice:</strong> Keep multiple paths open. Don't burn bridges. Maintain relationships. Learn skills that open doors.
+                            </div>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <h4>2. Stress Inoculation</h4>
+                            <p>Small, frequent exposures to manageable stress build capacity for larger stress.</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Practice:</strong> Cold showers, difficult conversations, public speaking, rejection challenges. Start small, increase gradually.
+                            </div>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <h4>3. Redundancy</h4>
+                            <p>Backups and multiple paths create resilience. Single points of failure create fragility.</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Practice:</strong> Multiple income streams. Backup skills. Emergency fund. Redundant systems.
+                            </div>
+                        </div>
+                        
+                        <div class="characteristic">
+                            <h4>4. Skin in the Game</h4>
+                            <p>Have something meaningful to lose. No risk, no learning. No exposure, no adaptation.</p>
+                            <div class="simple-box" style="margin: 1rem 0; padding: 1rem; background: rgba(100, 181, 246, 0.05);">
+                                <strong>Practice:</strong> Invest your own time and resources. Make real commitments. Take meaningful risks.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- The Practice -->
+                <section class="article-section">
+                    <h3><i class="fas fa-dumbbell"></i> This Week's Practice</h3>
+
+                    <div class="characteristics">
+                        <div class="characteristic">
+                            <h4>Identify Brittleness</h4>
+                            <p>List your single points of failure. What would break you if it failed? One income source? One relationship? One skill?</p>
+                        </div>
+                        <div class="characteristic">
+                            <h4>Design One Barbell</h4>
+                            <p>Choose one area (career, learning, relationships). Design a barbell: 85% safe, 15% risky with upside. Eliminate the middle.</p>
+                        </div>
+                        <div class="characteristic">
+                            <h4>Apply the Lindy Filter</h4>
+                            <p>Before your next significant decision, ask: "Has this survived the test of time?" Allocate accordingly.</p>
+                        </div>
+                    </div>
+
+                    <div class="simple-box" style="border-color: var(--path-primary); margin-top: 2rem;">
+                        <p style="text-align: center;"><strong style="color: var(--path-primary);">Chaos is not the enemy. Chaos is the raw material for strength.</strong> Build systems that use volatility as fuel.</p>
+                        <p style="text-align: center; margin-top: 1rem;">Next: <strong style="color: var(--path-primary);">Multiple Routes</strong> - why having options creates resilience.</p>
+                    </div>
+                </section>
+
+                <div class="simple-divider"></div>
+
+                <!-- Navigation -->
+                <section class="navigation">
+                    <a href="01-brittle-vs-resilient.html" class="nav-link-backward">
+                        <i class="fas fa-arrow-left"></i> Previous: Brittle vs Resilient
+                    </a>
+                    <a href="03-multiple-routes.html" class="button button-primary nav-link-forward">
+                        Next: Multiple Routes <i class="fas fa-arrow-right"></i>
+                    </a>
+                </section>
+
+                <div style="margin-top: 1rem; text-align: center;">
+                    <span class="progress-indicator">Practice 2 of 6</span>
+                </div>
+
+            </article>
+
+            <footer class="footer">
+                <p>The Way · 2026</p>
+                <p class="footer-credit">Finding your path. Walking it well. Resting when needed. Leaving something for those who follow.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>
