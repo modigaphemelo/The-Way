@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Way · A Book of Living</title>
+    <style>
+        /* Print-optimized CSS */
+        @media print {
+            @page {
+                size: A5;
+                margin: 1.5cm;
+                @top-center {
+                    content: "The Way";
+                    font-family: 'Garamond', serif;
+                    font-size: 9pt;
+                    color: #333;
+                }
+                @bottom-center {
+                    content: counter(page);
+                    font-family: 'Garamond', serif;
+                    font-size: 9pt;
+                }
+            }
+            
+            body {
+                font-family: 'Garamond', 'Times New Roman', serif;
+                line-height: 1.5;
+                color: #111;
+                background: white;
+                font-size: 11pt;
+                max-width: 100%;
+            }
+            
+            h1 {
+                font-size: 24pt;
+                font-weight: normal;
+                text-align: center;
+                margin-top: 2cm;
+                margin-bottom: 1cm;
+                page-break-before: always;
+                page-break-after: avoid;
+            }
+            
+            h2 {
+                font-size: 18pt;
+                font-weight: normal;
+                margin-top: 1.5cm;
+                margin-bottom: 0.5cm;
+                page-break-after: avoid;
+            }
+            
+            h3 {
+                font-size: 14pt;
+                font-weight: 600;
+                margin-top: 1cm;
+                margin-bottom: 0.3cm;
+                page-break-after: avoid;
+            }
+            
+            h4 {
+                font-size: 12pt;
+                font-weight: 600;
+                margin-top: 0.5cm;
+                margin-bottom: 0.2cm;
+                page-break-after: avoid;
+            }
+            
+            p {
+                margin-bottom: 0.3cm;
+                text-align: justify;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            ul, ol {
+                margin-bottom: 0.5cm;
+                padding-left: 0.8cm;
+            }
+            
+            li {
+                margin-bottom: 0.1cm;
+            }
+            
+            blockquote {
+                margin-left: 1cm;
+                margin-right: 1cm;
+                font-style: italic;
+                color: #333;
+                border-left: 2px solid #aaa;
+                padding-left: 0.8cm;
+            }
+            
+            hr {
+                border: none;
+                border-top: 1px solid #ccc;
+                margin: 1cm 2cm;
+            }
+            
+            .title-page {
+                text-align: center;
+                margin-top: 5cm;
+                page-break-after: always;
+            }
+            
+            .title-page h1 {
+                font-size: 36pt;
+                margin-bottom: 1cm;
+            }
+            
+            .title-page .subtitle {
+                font-size: 18pt;
+                font-style: italic;
+                color: #444;
+                margin-bottom: 3cm;
+            }
+            
+            .title-page .author {
+                font-size: 14pt;
+                margin-top: 2cm;
+            }
+            
+            .copyright-page {
+                text-align: center;
+                margin-top: 3cm;
+                font-size: 10pt;
+                color: #555;
+                page-break-after: always;
+            }
+            
+            .part {
+                font-size: 20pt;
+                text-align: center;
+                margin: 3cm 0 1cm;
+                page-break-before: always;
+            }
+            
+            .threshold-note {
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+                padding: 0.5cm;
+                margin: 1cm 0;
+                font-style: italic;
+            }
+            
+            .mantra {
+                text-align: center;
+                font-style: italic;
+                margin: 1cm 0;
+                page-break-inside: avoid;
+            }
+            
+            .footer-note {
+                text-align: center;
+                margin-top: 2cm;
+                font-size: 9pt;
+                color: #666;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 0.5cm 0;
+            }
+            
+            td, th {
+                border: 1px solid #ddd;
+                padding: 0.2cm;
+                font-size: 10pt;
+            }
+            
+            th {
+                background: #f0f0f0;
+                font-weight: 600;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* Screen styles (for preview) */
+        @media screen {
+            body {
+                font-family: 'Garamond', 'Georgia', serif;
+                line-height: 1.6;
+                color: #222;
+                background: #faf9f7;
+                max-width: 800px;
+                margin: 2cm auto;
+                padding: 1cm;
+                font-size: 12pt;
+            }
+            
+            h1 { font-size: 28pt; text-align: center; margin-top: 2cm; }
+            h2 { font-size: 20pt; margin-top: 1.5cm; }
+            h3 { font-size: 16pt; }
+            blockquote { border-left: 3px solid #aaa; padding-left: 1cm; margin-left: 1cm; }
+            .title-page { text-align: center; margin-top: 3cm; }
+            .copyright-page { text-align: center; margin-top: 3cm; color: #666; }
+            .threshold-note { background: #f0f0f0; padding: 1cm; border-radius: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Title Page -->
+<div class="title-page">
+    <h1>The Way</h1>
+    <div class="subtitle">Finding your path. Walking it well.<br>Resting when needed. Leaving something for those who follow.</div>
+    <div class="author">A Guide to Becoming Someone Who Holds Under Pressure</div>
+    <div style="margin-top: 4cm; font-size: 10pt;">2026</div>
+</div>
+
+<!-- Copyright Page -->
+<div class="copyright-page">
+    <p>© 2026 · The Way</p>
+    <p style="margin-top: 1cm;">This work is licensed under the MIT License.</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this material to use, adapt, and build upon — for personal or commercial purposes — with appropriate credit given to the original.</p>
+    <p style="margin-top: 2cm;">The only condition: Include this notice in all copies.</p>
+    <p style="margin-top: 2cm;">No warranties. But you have freedom to walk your own way.</p>
+    <p style="margin-top: 3cm;">theway.com · 2026</p>
+</div>
+
+<!-- Table of Contents -->
+<div style="page-break-before: always;">
+    <h2>Contents</h2>
+    <ul style="list-style: none; padding-left: 0;">
+        <li style="margin-bottom: 0.3cm;"><a href="#begin">Why This Exists</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">Ⅰ · See the path</li>
+        <li style="margin-left: 0.5cm;"><a href="#01">01. See What You Were Given</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#02">02. Know Your Ground</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#03">03. Walk Deliberately</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">· Threshold ·</li>
+        <li style="margin-left: 0.5cm;"><a href="#sovereignty">Sovereignty Check</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">Ⅱ · Make the way</li>
+        <li style="margin-left: 0.5cm;"><a href="#04">04. Walk at Your Pace</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#05">05. Walk Through Difficulty</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#06">06. Paths That Strengthen</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#07">07. Walk With What You Have</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">· Threshold ·</li>
+        <li style="margin-left: 0.5cm;"><a href="#contribution">Contribution Check</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">Ⅲ · Walk well</li>
+        <li style="margin-left: 0.5cm;"><a href="#08">08. Walk Each Day</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#09">09. Walk With Others</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#10">10. Walk Toward Meaning</a></li>
+        <li style="margin-top: 0.5cm; font-weight: 600;">· Thresholds ·</li>
+        <li style="margin-left: 0.5cm;"><a href="#restoration">Rest, Not Escape</a></li>
+        <li style="margin-left: 0.5cm;"><a href="#legacy">Legacy Check</a></li>
+        <li style="margin-top: 0.5cm;"><a href="#rules">Rules to Live By</a></li>
+    </ul>
+</div>
+
+<!-- Begin -->
+<div id="begin" style="page-break-before: always;">
+    <h2>Why This Exists</h2>
+    <p>This isn't philosophy. It's finding solid ground. This isn't self-help. It's learning to walk again. This isn't content. It's a path I desperately need to walk.</p>
+    
+    <p>For years, I tried walking faster. More effort, longer hours, better systems. But you can't outwalk ground that's already unstable. Speed just means you collapse sooner. I tried patching the ground, fixing each crack as it appeared. Treating symptoms instead of asking why the ground kept cracking in the first place. I tried more willpower, forcing stability through sheer determination — a gentle push against forces designed to break it.</p>
+    
+    <p>The realisation came: when you've been walking someone else's path. When the cracks outnumber the solid sections. When you can't patch anymore because the ground itself is borrowed.</p>
+    
+    <p><strong>The only way: start again.</strong></p>
+    
+    <p>I'm finding the path while I'm still walking on borrowed ground. This isn't academic. This isn't theoretical. This is what happens when you realise:</p>
+    
+    <ul>
+        <li>You can't think your way out of a path you didn't think your way into</li>
+        <li>Willpower is not solid ground</li>
+        <li>Sometimes you need to stop walking and see where you actually stand</li>
+        <li><strong>The most radical act is to find ground that actually holds</strong></li>
+    </ul>
+    
+    <p>The Way is that ground.</p>
+    
+    <p style="margin-top: 1cm; font-style: italic;">Start by seeing where you are. Everything else follows.</p>
+</div>
+
+<!-- Stage 1 -->
+<div style="page-break-before: always;">
+    <div class="part">Ⅰ · See the path</div>
+    
+    <div id="01">
+        <h3>01. See What You Were Given</h3>
+        <p>The first step: examine the paths you inherited. Before you can walk your own path, you must see where you've been walking without choosing.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Your life contains dozens of inherited directions you didn't consciously choose. Habits absorbed from family. Beliefs adopted from culture. Paths copied from peers. See What You Were Given is the practice of examining every direction you're walking and asking: "Did I choose this, or was I given it?"</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Map Your Inheritance</strong> — Create an inventory of the paths you're walking. Career, relationships, habits, beliefs, values. For each, ask: "Where did this come from? Did I choose it, or was it given?"</p>
+        
+        <p><strong>2. Trace the Source</strong> — For each inherited path, trace it to its origin. Whose voice is that in your head? Whose values are you living? Whose definition of success are you chasing?</p>
+        
+        <p><strong>3. Assess the Fit</strong> — For each inherited path, ask: "Does this actually fit me? Does it strengthen me or weaken me? Does it lead where I want to go?"</p>
+        
+        <p><strong>4. Identify Fault Lines</strong> — Notice where borrowed paths crack under pressure. Where do you feel dissonance? Where do you act against your own nature?</p>
+        
+        <p><strong>5. Separate From What's Not Yours</strong> — Begin releasing paths that don't serve you. This is not rejection — it's clearing ground.</p>
+        
+        <p><strong>6. Document What Remains</strong> — After releasing what isn't yours, you're left with what is. This may be a small set of genuine directions. Authentic ground, even small, is stronger than borrowed territory.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You have seen what you were given when you can name five inherited paths, trace them to their sources, and know what remains genuinely yours.</p>
+        </div>
+    </div>
+    
+    <div id="02">
+        <h3>02. Know Your Ground</h3>
+        <p>The second step: understand where you actually stand. You can only walk from where you are, not from where you wish you were.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Most of us plan our paths from imagined ground. We make decisions based on who we wish we were, what we wish we had. This is why so many plans fail. They were built on ground that doesn't exist. Know Your Ground is the practice of honest assessment — inventorying your actual strengths, weaknesses, resources, and constraints.</p>
+        
+        <h4>The Six Assessments</h4>
+        
+        <p><strong>1. Financial Ground</strong> — What do you actually have? Income, savings, debt, obligations. The material foundation you walk on.</p>
+        
+        <p><strong>2. Skill Ground</strong> — What can you actually do? Not what your degree says. What you can reliably deliver.</p>
+        
+        <p><strong>3. Energy Ground</strong> — What is your actual capacity? When do you work best? How much can you sustain?</p>
+        
+        <p><strong>4. Relational Ground</strong> — Who actually walks with you? People who would show up if you needed them.</p>
+        
+        <p><strong>5. Constraint Ground</strong> — What limits you? Not as excuses, but as facts. Reality you must walk with.</p>
+        
+        <p><strong>6. Map Your Ground</strong> — Bring it all together. Your starting point, recorded honestly. This is where you begin.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You know your ground when you can list your actual financial position, your demonstrable skills, your energy patterns, and your constraints — without flinching.</p>
+        </div>
+    </div>
+    
+    <div id="03">
+        <h3>03. Walk Deliberately</h3>
+        <p>The third step: protect your attention. Walk with intention, not on autopilot. Your attention is how you place your feet.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>We've moved from an attention economy to a distraction industry. Your focus is not just scattered — it is mined. Every notification, every infinite scroll, every algorithm is designed to capture your feet and point them somewhere else. Walk Deliberately is the practice of reclaiming your attention through environment design, not willpower.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Audit Your Steps</strong> — For one week, track where your attention goes. Every notification check, every scroll session, every context switch.</p>
+        
+        <p><strong>2. Understand the Extraction</strong> — Learn how your attention is harvested. Variable rewards, infinite scroll, social validation loops. See the mechanisms.</p>
+        
+        <p><strong>3. Design Your Environment</strong> — Willpower fails. Architecture works. Design spaces where attention flows where you want it.</p>
+        
+        <p><strong>4. Create Morning Anchor</strong> — The first hour sets the tone. Protect it. No phone. No input. Just intention.</p>
+        
+        <p><strong>5. Master Your Tools</strong> — Use technology; don't be used by it. Turn your phone into a tool, not a slot machine.</p>
+        
+        <p><strong>6. Pause and Choose</strong> — Throughout the day, pause and ask: "Am I placing my feet right now, or is something else?"</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk deliberately when you can work for 90 minutes without interruption, choose when to check your phone, and regularly pause to ask "Am I walking deliberately?"</p>
+        </div>
+    </div>
+</div>
+
+<!-- Sovereignty Threshold -->
+<div id="sovereignty" style="page-break-before: always;">
+    <h3>Sovereignty Check</h3>
+    <p>Before moving from Stage 1 to Stage 2.</p>
+    
+    <p>You've seen what you were given. You know your ground. You walk deliberately. But can you choose your direction without permission?</p>
+    
+    <h4>The Four Foundations</h4>
+    
+    <p><strong>1. Financial Sovereignty</strong> — Six months of expenses in accessible form. Cash or equivalents that let you walk away and not panic.</p>
+    
+    <p><strong>2. Skill Sovereignty</strong> — A skill that doesn't need credentials. Something you can do that the market values, that doesn't require a license, degree, or permission.</p>
+    
+    <p><strong>3. Relational Sovereignty</strong> — At least one non-transactional relationship. Someone who would show up even if you had nothing to offer.</p>
+    
+    <p><strong>4. Psychological Sovereignty</strong> — The ability to choose without permission. Not needing validation. Not waiting for approval.</p>
+    
+    <p>If you answered "no" to any: return to Stage 1. These are not optional luxuries. They are the foundation.</p>
+    
+    <p>If you answered "yes" to all: you are ready to make your way.</p>
+</div>
+
+<!-- Stage 2 -->
+<div style="page-break-before: always;">
+    <div class="part">Ⅱ · Make the way</div>
+    
+    <div id="04">
+        <h3>04. Walk at Your Pace</h3>
+        <p>The fourth step: find your natural rhythm. Not everyone walks the same way.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Most productivity systems teach you to walk faster. They assume the problem is speed. But the problem is rarely speed — it's rhythm. Walking against your nature leads to burnout. Walking with your nature leads to sustainability.</p>
+        
+        <h4>The Eight Practices</h4>
+        
+        <p><strong>1. The Pacing Dilemma</strong> — Recognise the twin traps: paralysis (never starting) and addiction (never stopping).</p>
+        
+        <p><strong>2. Design Your Path</strong> — Design your environment to make both focused walking and intentional resting automatic.</p>
+        
+        <p><strong>3. Hold Direction, Adjust Pace</strong> — Be stubborn about your direction, flexible about your pace.</p>
+        
+        <p><strong>4. When Success Slows You</strong> — Success can be more dangerous than failure. Learn when victory is poisoning your pace.</p>
+        
+        <p><strong>5. Rest as Integration</strong> — The space between strides is where progress becomes permanent. Rest is not emptiness — it's integration.</p>
+        
+        <p><strong>6. When to Stop Walking</strong> — Knowing when to stop is as important as knowing when to start.</p>
+        
+        <p><strong>7. Find Your Cadence</strong> — Life is a series of sprints with recovery periods. Find your wave pattern.</p>
+        
+        <p><strong>8. Your Natural Rhythm</strong> — Synthesise everything into your personal cadence.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You have found your pace when you can work deeply without burning out, rest deeply without guilt, and trust your rhythm more than external schedules.</p>
+        </div>
+    </div>
+    
+    <div id="05">
+        <h3>05. Walk Through Difficulty</h3>
+        <p>The fifth step: move despite obstacles. The walking itself clears the way.</p>
+        
+        <p><em>"Hesitation is defeat." — Saito</em></p>
+        
+        <h4>The Core Practice</h4>
+        <p>Most people wait for perfect conditions. They wait until they're ready, until the fear subsides, until the path is clear. But the path is never clear. It clears as you walk it.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. The Cost of Not Walking</strong> — Regret for steps never taken hurts more than regret for imperfect steps.</p>
+        
+        <p><strong>2. Read the Resistance</strong> — Resistance is information, not command. The metal speaks its truth.</p>
+        
+        <p><strong>3. Obstacles as Teachers</strong> — The obstacle is not in the way. The obstacle is the way the path teaches you to walk.</p>
+        
+        <p><strong>4. When to Move</strong> — Frameworks for decisive action: the 2x2 matrix, the 5-second rule, timeboxing.</p>
+        
+        <p><strong>5. Walking in Storms</strong> — Protocols for criticism, scarcity, change, and fatigue.</p>
+        
+        <p><strong>6. Release Before Perfect</strong> — The 70% solution. Better to release with visible hammer marks than to perfect nothing forever.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk through difficulty when you act even when conditions aren't perfect, see resistance as information, and trust that the walking clears the way.</p>
+        </div>
+    </div>
+    
+    <div id="06">
+        <h3>06. Paths That Strengthen</h3>
+        <p>The sixth step: build resilience. Create paths that grow stronger under pressure.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>What appears inefficient in the short term becomes exponentially valuable in the long term. Paths That Strengthen are about foundations that compound, practices that thrive on disorder, and structures that gain strength from volatility.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Brittle vs Resilient</strong> — Understand the difference between what cracks under pressure and what strengthens from it.</p>
+        
+        <p><strong>2. Design for Pressure</strong> — Build systems that gain from volatility. Nassim Taleb calls this antifragility.</p>
+        
+        <p><strong>3. Multiple Routes</strong> — Why consolidation requires apparent stagnation. The power of plateaus.</p>
+        
+        <p><strong>4. Balance and Redundancy</strong> — Emotional and structural durability. Building immunity through micro-fracture practice.</p>
+        
+        <p><strong>5. Deep Foundations</strong> — Cross-generational perspective. Making decisions from your great-grandchildren's path.</p>
+        
+        <p><strong>6. The Strengthening Path</strong> — Creating structures that outlive your walking.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You have built paths that strengthen when your systems hold better after stress than before, and you've created something that would outlast you.</p>
+        </div>
+    </div>
+    
+    <div id="07">
+        <h3>07. Walk With What You Have</h3>
+        <p>The seventh step: use your resources wisely. Time, energy, attention — walk with what you have.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>You cannot share warmth from an empty hearth. Walk With What You Have is the strategic stewardship of building such profound personal reserves that your overflow becomes your gift.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Time Audit</strong> — Track your 168 hours. Find the leaks.</p>
+        
+        <p><strong>2. Energy Audit</strong> — Sleep, nutrition, movement, stress. Your daily burn capacity.</p>
+        
+        <p><strong>3. Attention Audit</strong> — Three markets: consumption, production, connection. Calculate your attention ROI.</p>
+        
+        <p><strong>4. Make Resources Compound</strong> — Four assets that multiply: skill, health, relationships, wisdom.</p>
+        
+        <p><strong>5. Investment, Not Expense</strong> — Learn to distinguish what gives back from what only takes.</p>
+        
+        <p><strong>6. Walk With Wisdom</strong> — Four capitals: financial, physical, social, knowledge. The sovereignty scale.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk with what you have when you know where your time, energy, and attention go, and you allocate them intentionally.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contribution Threshold -->
+<div id="contribution" style="page-break-before: always;">
+    <h3>Contribution Check</h3>
+    <p>Before moving from Stage 2 to Stage 3.</p>
+    
+    <p>You walk at your pace. You walk through difficulty. Your paths strengthen with use. You walk with what you have. But are you building what remains when you're gone?</p>
+    
+    <h4>The Three Questions</h4>
+    
+    <p><strong>1. The Anonymity Test</strong> — "Would this matter if my name weren't on it?" If your work only matters because people know you did it, you've built visibility, not value.</p>
+    
+    <p><strong>2. The Longevity Test</strong> — "Would this still matter in ten years? In fifty?" Contribution outlasts the moment.</p>
+    
+    <p><strong>3. The Independence Test</strong> — "Does this walk on its own without me?" Contribution creates things that continue without you.</p>
+    
+    <p>If you're unsure or answered "no": return to Stage 2. Contribution is what makes the walking meaningful.</p>
+    
+    <p>If you can point to something that would outlast you: you are ready to walk well.</p>
+</div>
+
+<!-- Stage 3 -->
+<div style="page-break-before: always;">
+    <div class="part">Ⅲ · Walk well</div>
+    
+    <div id="08">
+        <h3>08. Walk Each Day</h3>
+        <p>The eighth step: daily practice. Consistency over intensity. Small steps that compound.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Willpower is expensive fuel. Decision fatigue drains your reserves. Walk Each Day is about outsourcing willpower to ritual and rhythm — creating automated patterns where the right steps happen naturally.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Start With Intention</strong> — The first hour sets the tone. Three phases: body, mind, direction. No distractions.</p>
+        
+        <p><strong>2. Deep Walk Blocks</strong> — Four stations: prepare, plan, execute, review. Deep work vs shallow work. 90/20 rhythm.</p>
+        
+        <p><strong>3. Transition With Care</strong> — The moments between activities matter. Close, clear, pause, set intention.</p>
+        
+        <p><strong>4. End With Reflection</strong> — Three phases: capture, transition, wind-down. Digital sunset. Review your day.</p>
+        
+        <p><strong>5. Small Steps Compound</strong> — 1% better every day = 37x better in a year. The daily minimum.</p>
+        
+        <p><strong>6. When Walking Is Automatic</strong> — The goal: rhythms so well-designed that the right steps happen without effort.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk each day when your morning ritual happens without decision, your deep work blocks are protected, and your evening reflection is automatic.</p>
+        </div>
+    </div>
+    
+    <div id="09">
+        <h3>09. Walk With Others</h3>
+        <p>The ninth step: build strong relationships. Walk with those who share your direction.</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Most relationship problems come from poor boundaries: either completely open (absorbing others' issues) or completely closed (isolated and cold). Walk With Others is about designing healthy connections from a place of wholeness, not need.</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. Audit Your Connections</strong> — Take inventory. Who strengthens you? Who drains you? Five types: anchors, companions, drains, mirrors, multipliers.</p>
+        
+        <p><strong>2. Clear Boundaries</strong> — Three zones: public, private, sacred. Five types: physical, temporal, emotional, intellectual, energetic. How to say no effectively.</p>
+        
+        <p><strong>3. Bonds That Hold</strong> — Three types: energizers, neutrals, drainers. The reciprocity audit. How to spot energy vampires.</p>
+        
+        <p><strong>4. Strengthen Together</strong> — Connection from wholeness, not need. Mutual growth. The strengthening framework.</p>
+        
+        <p><strong>5. Find Your Walking Company</strong> — Four roles you need: guides (ahead), companions (beside), apprentices (behind), anchors (always there).</p>
+        
+        <p><strong>6. Leave Tracks for Others</strong> — The deepest form of walking with others: making the path clearer for those who follow.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk with others well when you know who strengthens you, your boundaries are clear, and you're leaving tracks for those who come after.</p>
+        </div>
+    </div>
+    
+    <div id="10">
+        <h3>10. Walk Toward Meaning</h3>
+        <p>The tenth step: find your direction. What are you walking toward?</p>
+        
+        <h4>The Core Practice</h4>
+        <p>Meaning is not a destination you arrive at. It's a direction you walk toward. The question is not "What is the meaning of life?" but "What makes my life worth walking?"</p>
+        
+        <h4>The Six Practices</h4>
+        
+        <p><strong>1. What Horizon?</strong> — Begin with the question. What direction calls to you? What problem demands your walking?</p>
+        
+        <p><strong>2. Direction, Not Destination</strong> — Meaning is not a point on a map. It's a bearing. You never arrive.</p>
+        
+        <p><strong>3. What You Leave Behind</strong> — Legacy is not about being remembered. It's about making the path clearer for those who follow.</p>
+        
+        <p><strong>4. The Work That Matters</strong> — Not all work is equal. Some builds cathedrals. Some builds sandcastles. Build cathedrals.</p>
+        
+        <p><strong>5. Walk for Those After</strong> — The deepest meaning comes from serving those who come next.</p>
+        
+        <p><strong>6. The Path Continues</strong> — You will not finish. The path goes on without you. That's okay. Your job is to walk it well while you're here.</p>
+        
+        <div class="threshold-note">
+            <p><strong>Threshold:</strong> You walk toward meaning when you have a direction that matters to you, you release the need for arrival, and you walk for those who come after.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Restoration Threshold -->
+<div id="restoration" style="page-break-before: always;">
+    <h3>Rest, Not Escape</h3>
+    
+    <p>Rest is not the absence of walking. Rest is part of the walk. The question is not whether you rest. The question is what your rest leaves behind.</p>
+    
+    <h4>Restoration vs Escape</h4>
+    
+    <table>
+        <tr>
+            <th>Restoration</th>
+            <th>Escape</th>
+        </tr>
+        <tr>
+            <td>Leaves you more capable</td>
+            <td>Leaves you less capable</td>
+        </tr>
+        <tr>
+            <td>Requires engagement</td>
+            <td>Requires consumption</td>
+        </tr>
+        <tr>
+            <td>Builds skill, attention, connection</td>
+            <td>Depletes attention, energy, time</td>
+        </tr>
+        <tr>
+            <td>Compounds</td>
+            <td>Costs</td>
+        </tr>
+        <tr>
+            <td>You finish fuller</td>
+            <td>You finish emptier</td>
+        </tr>
+    </table>
+    
+    <h4>The Test</h4>
+    <p><strong>"After this activity, am I more capable of difficult things than before, or less?"</strong></p>
+    <p>If you feel emptier, you escaped. If you feel fuller, you rested.</p>
+    
+    <h4>Designing Restoration</h4>
+    <ul>
+        <li><strong>Active rest:</strong> Reading, making, moving, talking — activities that engage you</li>
+        <li><strong>Scheduled rest:</strong> Rest is not what happens when you collapse — design it in</li>
+        <li><strong>Environment design:</strong> Make restoration easy and escape hard</li>
+        <li><strong>The one-hour rule:</strong> No screens for one hour before sleep</li>
+    </ul>
+</div>
+
+<!-- Legacy Threshold -->
+<div id="legacy" style="page-break-before: always;">
+    <h3>Legacy Check</h3>
+    
+    <p>You've seen the path. You've made the way. You've walked well. Now: what remains when you're gone?</p>
+    
+    <p>Legacy is not fame. It is not being remembered. It is making the path clearer for those who come after. It is the quiet gift of a well-marked trail, a cleared obstacle, a light left burning for the next walker.</p>
+    
+    <h4>The Four Dimensions of Legacy</h4>
+    
+    <p><strong>1. The Path Itself</strong> — What did you build that outlasts you? Systems, ideas, code, books, art. Things that walk on their own.</p>
+    
+    <p><strong>2. The People You Walked With</strong> — Who did you strengthen? The students who carry your teaching. The children who learned from your example.</p>
+    
+    <p><strong>3. The Obstacles You Cleared</strong> — What did you remove from the path? Prejudice, ignorance, unnecessary difficulty. The obstacles you remove benefit everyone who follows.</p>
+    
+    <p><strong>4. The Light You Left</strong> — How you walked matters as much as what you built. The integrity, the kindness, the courage. Someone is watching. Someone will remember how you walked.</p>
+    
+    <p>Not a pass/fail. Just a question to carry: Did I make the path easier for the next person?</p>
+    
+    <p>The path continues. You will not finish it. But you can leave it better than you found it.</p>
+    
+    <div class="mantra">
+        <p>The path was here before me.<br>
+        It will be here after.<br>
+        I am not its maker, only its walker.<br>
+        But I can clear a stone, mark a turn,<br>
+        walk in a way that makes someone want to follow.<br>
+        That is enough. That is everything.</p>
+    </div>
+</div>
+
+<!-- Rules to Live By -->
+<div id="rules" style="page-break-before: always;">
+    <h2>Rules to Live By</h2>
+    <p style="text-align: center; font-style: italic; margin-bottom: 1cm;">A condensed guide · Do's and Don'ts</p>
+    
+    <h3>See the Path</h3>
+    <table style="width: 100%;">
+        <tr>
+            <th style="width: 50%;">Do</th>
+            <th style="width: 50%;">Don't</th>
+        </tr>
+        <tr><td>Examine what you were given</td><td>Live on autopilot</td></tr>
+        <tr><td>Trace your patterns to their source</td><td>Assume your beliefs are yours</td></tr>
+        <tr><td>Assess what fits and what doesn't</td><td>Keep what drains you</td></tr>
+        <tr><td>Release what's not yours</td><td>Cling to borrowed paths</td></tr>
+        <tr><td>Know your actual ground</td><td>Build from fantasy</td></tr>
+        <tr><td>Track your time, energy, attention</td><td>Guess where your life goes</td></tr>
+        <tr><td>Protect your first hour</td><td>Hand your morning to the world</td></tr>
+    </table>
+    
+    <h3>Walk With Intention</h3>
+    <table>
+        <tr><td>Find your natural pace</td><td>Run someone else's race</td></tr>
+        <tr><td>Pause before you act</td><td>React automatically</td></tr>
+        <tr><td>Take the first step</td><td>Wait for certainty</td></tr>
+        <tr><td>Read resistance as information</td><td>Treat resistance as command</td></tr>
+        <tr><td>Convert obstacles into teachers</td><td>Complain about what blocks you</td></tr>
+        <tr><td>Release before perfect</td><td>Wait until it's perfect</td></tr>
+        <tr><td>Do the daily minimum</td><td>Wait for motivation</td></tr>
+    </table>
+    
+    <h3>Build What Lasts</h3>
+    <table>
+        <tr><td>Design your environment</td><td>Rely on willpower</td></tr>
+        <tr><td>Build systems that strengthen</td><td>Create things that wear down</td></tr>
+        <tr><td>Make resources compound</td><td>Spend without investing</td></tr>
+        <tr><td>Distinguish investment from expense</td><td>Treat everything as cost</td></tr>
+        <tr><td>Audit your relationships</td><td>Keep draining people close</td></tr>
+        <tr><td>Set clear boundaries</td><td>Let everyone have access</td></tr>
+        <tr><td>Invest in energizers</td><td>Feed the vampires</td></tr>
+    </table>
+    
+    <h3>Walk Each Day</h3>
+    <table>
+        <tr><td>Start with intention</td><td>Check your phone first</td></tr>
+        <tr><td>Do deep work first</td><td>Fill mornings with shallow tasks</td></tr>
+        <tr><td>Transition with care</td><td>Rush between activities</td></tr>
+        <tr><td>End with reflection</td><td>Let the day fade into screen</td></tr>
+        <tr><td>Take one small step daily</td><td>Wait for the perfect moment</td></tr>
+        <tr><td>Miss one day, never two</td><td>Break the chain completely</td></tr>
+        <tr><td>Let habits become automatic</td><td>Decide everything every time</td></tr>
+    </table>
+    
+    <h3>Walk With Others</h3>
+    <table>
+        <tr><td>Audit who you spend time with</td><td>Keep everyone by default</td></tr>
+        <tr><td>Protect your boundaries</td><td>Say yes when you mean no</td></tr>
+        <tr><td>Seek mutual strengthening</td><td>Stay in one-sided bonds</td></tr>
+        <tr><td>Find guides ahead of you</td><td>Go it alone</td></tr>
+        <tr><td>Walk with peers beside you</td><td>Compare and despair</td></tr>
+        <tr><td>Mentor those behind you</td><td>Hoard what you've learned</td></tr>
+        <tr><td>Leave tracks for those after</td><td>Build monuments to yourself</td></tr>
+    </table>
+    
+    <h3>Walk Toward Meaning</h3>
+    <table>
+        <tr><td>Hold the question open</td><td>Demand the answer now</td></tr>
+        <tr><td>Walk toward what matters</td><td>Wait to feel ready</td></tr>
+        <tr><td>Build cathedrals, not sandcastles</td><td>Work only for today</td></tr>
+        <tr><td>Serve those who come after</td><td>Live only for yourself</td></tr>
+        <tr><td>Accept the path continues</td><td>Expect to arrive</td></tr>
+        <tr><td>Rest when needed</td><td>Escape when tired</td></tr>
+        <tr><td>Leave something useful</td><td>Seek to be remembered</td></tr>
+    </table>
+    
+    <h3>The Core Rules</h3>
+    <ol style="font-size: 12pt; margin-left: 1cm;">
+        <li><strong>See clearly</strong> — Know where you stand and what you were given</li>
+        <li><strong>Start where you are</strong> — Not where you wish you were</li>
+        <li><strong>Move before you're ready</strong> — Hesitation is defeat</li>
+        <li><strong>Find your pace</strong> — Not too fast, not too slow</li>
+        <li><strong>Release before perfect</strong> — Version 1.0 beats version 0.0</li>
+        <li><strong>Protect your attention</strong> — It's the only fire you have</li>
+        <li><strong>Invest in what compounds</strong> — Skills, health, relationships, wisdom</li>
+        <li><strong>Keep good company</strong> — Energizers only; drainers must go</li>
+        <li><strong>Leave tracks</strong> — Make the path easier for those after</li>
+        <li><strong>Keep walking</strong> — You never arrive. That's the point.</li>
+    </ol>
+    
+    <div class="mantra" style="margin-top: 1.5cm;">
+        <p><strong>See your ground, walk at your pace, release before perfect, leave tracks for those after.</strong></p>
+    </div>
+</div>
+
+<!-- Colophon -->
+<div style="page-break-before: always; text-align: center; margin-top: 3cm;">
+    <p style="font-size: 14pt; margin-bottom: 2cm;">The Way</p>
+    <p style="font-size: 11pt; margin-bottom: 0.5cm;">Finding your path. Walking it well.</p>
+    <p style="font-size: 11pt; margin-bottom: 2cm;">Resting when needed. Leaving something for those who follow.</p>
+    
+    <p style="font-size: 10pt; margin-top: 3cm;">Completed February 2026</p>
+    <p style="font-size: 9pt; color: #666;">Set in Garamond · Printed in A5</p>
+    <p style="font-size: 9pt; color: #666;">theway.com</p>
+</div>
+
+<!-- Print instructions (screen only) -->
+<div class="no-print" style="margin-top: 2cm; padding: 1cm; background: #f0f0f0; border-radius: 5px;">
+    <h3>Printing Instructions</h3>
+    <p>To print this as a book:</p>
+    <ol>
+        <li>Open your browser's print dialog (Cmd/Ctrl + P)</li>
+        <li>Select "Save as PDF"</li>
+        <li>Choose A5 or A4 paper size</li>
+        <li>Enable "Background graphics" if needed</li>
+        <li>Print or save</li>
+    </ol>
+    <p>The document is formatted for A5 book-style printing with proper margins, page numbers, and section breaks.</p>
+</div>
+
+</body>
+</html>
